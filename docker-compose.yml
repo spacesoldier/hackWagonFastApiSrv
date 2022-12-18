@@ -4,7 +4,7 @@ services:
     image: silviosalgari/hackwagon-api:latest
     container_name: hackwagon-api
     ports:
-      - "8111:8000"
+      - "8111:80"
 
 networks:
   default:
