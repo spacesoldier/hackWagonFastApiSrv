@@ -122,16 +122,18 @@ async def root():
 async def calc_route_time(request: RouteRequest):
     status_code = 0
     status_desc = "Ok"
-
+    print("received request")
     response = {}
 
     if request_is_valid(request):
+        print("request is valid")
         distance = calc_distance(request.st_code_snd, request.st_code_rsv)
         input_df = prepare_request_vector(request, distance)
         input_df = input_df.transpose()
         travel_time_array = calc_travel_time(input_df)
         response["travel_time"] = travel_time_array[0]
     else:
+        print("request validation failed")
         response["error"] = "Invalid input parameters"
 
     return {
