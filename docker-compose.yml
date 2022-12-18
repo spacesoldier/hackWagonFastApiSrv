@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  hackwagon-api:
+    image: silviosalgari/hackwagon-api:latest
+    container_name: hackwagon-api
+    ports:
+      - "8111:8000"
+
+networks:
+  default:
+    external:
+      name: leadersnet
